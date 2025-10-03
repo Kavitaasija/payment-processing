@@ -16,12 +16,15 @@ public class PaymentRequest {
     private Order order;
     private String description;
     private String returnUrl;
+    private String merchantPaymentChargeReference;
+    private String merchantId;
     
     public PaymentRequest() {
     }
     
     public PaymentRequest(String id, PaymentMethod paymentMethod, Amount amount,
-                         Customer customer, Order order, String description, String returnUrl) {
+                         Customer customer, Order order, String description, String returnUrl,
+                         String merchantPaymentChargeReference) {
         this.id = id;
         this.paymentMethod = paymentMethod;
         this.amount = amount;
@@ -29,6 +32,7 @@ public class PaymentRequest {
         this.order = order;
         this.description = description;
         this.returnUrl = returnUrl;
+        this.merchantPaymentChargeReference = merchantPaymentChargeReference;
     }
 
     @Override
@@ -42,12 +46,14 @@ public class PaymentRequest {
                 Objects.equals(customer, that.customer) &&
                 Objects.equals(order, that.order) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(returnUrl, that.returnUrl);
+                Objects.equals(returnUrl, that.returnUrl) &&
+                Objects.equals(merchantPaymentChargeReference, that.merchantPaymentChargeReference);
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(id, paymentMethod, amount, customer, order, description, returnUrl);
+        return Objects.hash(id, paymentMethod, amount, customer, order, description, returnUrl,
+                merchantPaymentChargeReference);
     }
     
     @Override
@@ -60,6 +66,7 @@ public class PaymentRequest {
                 ", order=" + order +
                 ", description='" + description + '\'' +
                 ", returnUrl='" + returnUrl + '\'' +
+                ", merchantPaymentChargeReference='" + merchantPaymentChargeReference + '\'' +
                 '}';
     }
     
