@@ -9,12 +9,12 @@ import reactor.core.publisher.Mono;
  * Client interface for interacting with wallet payment processors.
  */
 public interface WalletProcessorClient extends RestClient<WalletAuthorizationRequest, WalletAuthorizationResponse> {
-    
-    /**
-     * Authorizes a payment with the wallet provider.
-     *
-     * @param request The wallet authorization request
-     * @return A Mono containing the wallet authorization response
-     */
-    Mono<WalletAuthorizationResponse> authorizePayment(WalletAuthorizationRequest request);
+
+  /**
+   * Authorizes a payment with the wallet provider.
+   *
+   * @param request The wallet authorization request
+   * @return A Mono containing the wallet authorization response
+   */
+  Mono<WalletAuthorizationResponse> authorizePayment(WalletAuthorizationRequest request);
 }

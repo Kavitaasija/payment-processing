@@ -10,9 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class PaymentMethod {
-    private PaymentMethodType type;
-    
-    public PaymentMethod(PaymentMethodType type) {
-        this.type = type;
-    }
+  private PaymentMethodType type;
+
+  public PaymentMethod(PaymentMethodType type) {
+    this.type = type;
+  }
 }

@@ -10,14 +10,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
-    /**
-     * Creates a WebClient bean.
-     *
-     * @return The WebClient bean
-     */
-    @Bean
-    public WebClient webClient() {
-        return WebClient.builder()
-                .build();
-    }
+  /**
+   * Creates a WebClient bean.
+   *
+   * @return The WebClient bean
+   */
+  @Bean
+  public WebClient webClient() {
+    return WebClient.builder()
+        .build();
+  }
 }

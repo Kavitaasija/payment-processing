@@ -1,69 +1,72 @@
 package org.pay.engine.paymentprocessing.model;
 
+import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
 import org.pay.engine.paymentprocessing.model.payment.PaymentMethod;
 
-import java.util.Objects;
-
 @Getter
 @Setter
 public class PaymentRequest {
-    private PaymentMethod paymentMethod;
-    private Amount amount;
-    private Customer customer;
-    private Order order;
-    private String description;
-    private String returnUrl;
-    private String merchantPaymentChargeReference;
-    private String merchantId;
-    
-    public PaymentRequest() {
-    }
-    
-    public PaymentRequest(PaymentMethod paymentMethod, Amount amount,
-                          Customer customer, Order order, String description, String returnUrl,
-                          String merchantPaymentChargeReference) {
-        this.paymentMethod = paymentMethod;
-        this.amount = amount;
-        this.customer = customer;
-        this.order = order;
-        this.description = description;
-        this.returnUrl = returnUrl;
-        this.merchantPaymentChargeReference = merchantPaymentChargeReference;
-    }
+  private PaymentMethod paymentMethod;
+  private Amount amount;
+  private Customer customer;
+  private Order order;
+  private String description;
+  private String returnUrl;
+  private String merchantPaymentChargeReference;
+  private String merchantId;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PaymentRequest that = (PaymentRequest) o;
-        return paymentMethod == that.paymentMethod &&
-                Objects.equals(amount, that.amount) &&
-                Objects.equals(customer, that.customer) &&
-                Objects.equals(order, that.order) &&
-                Objects.equals(description, that.description) &&
-                Objects.equals(returnUrl, that.returnUrl) &&
-                Objects.equals(merchantPaymentChargeReference, that.merchantPaymentChargeReference);
+  public PaymentRequest() {
+  }
+
+  public PaymentRequest(PaymentMethod paymentMethod, Amount amount,
+                        Customer customer, Order order, String description, String returnUrl,
+                        String merchantPaymentChargeReference) {
+    this.paymentMethod = paymentMethod;
+    this.amount = amount;
+    this.customer = customer;
+    this.order = order;
+    this.description = description;
+    this.returnUrl = returnUrl;
+    this.merchantPaymentChargeReference = merchantPaymentChargeReference;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-    
-    @Override
-    public int hashCode() {
-        return Objects.hash(paymentMethod, amount, customer, order, description, returnUrl,
-                merchantPaymentChargeReference);
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
-    
-    @Override
-    public String toString() {
-        return "PaymentRequest{" +
-                ", paymentMethod=" + paymentMethod +
-                ", amount=" + amount +
-                ", customer=" + customer +
-                ", order=" + order +
-                ", description='" + description + '\'' +
-                ", returnUrl='" + returnUrl + '\'' +
-                ", merchantPaymentChargeReference='" + merchantPaymentChargeReference + '\'' +
-                '}';
-    }
-    
+    PaymentRequest that = (PaymentRequest) o;
+    return paymentMethod == that.paymentMethod &&
+        Objects.equals(amount, that.amount) &&
+        Objects.equals(customer, that.customer) &&
+        Objects.equals(order, that.order) &&
+        Objects.equals(description, that.description) &&
+        Objects.equals(returnUrl, that.returnUrl) &&
+        Objects.equals(merchantPaymentChargeReference, that.merchantPaymentChargeReference);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(paymentMethod, amount, customer, order, description, returnUrl,
+        merchantPaymentChargeReference);
+  }
+
+  @Override
+  public String toString() {
+    return "PaymentRequest{" +
+        ", paymentMethod=" + paymentMethod +
+        ", amount=" + amount +
+        ", customer=" + customer +
+        ", order=" + order +
+        ", description='" + description + '\'' +
+        ", returnUrl='" + returnUrl + '\'' +
+        ", merchantPaymentChargeReference='" + merchantPaymentChargeReference + '\'' +
+        '}';
+  }
+
 }
